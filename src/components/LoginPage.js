@@ -8,6 +8,11 @@ const LoginPage = () => {
     setIsSignIn(!isSignIn);
   };
 
+  const handleButtonClick=()=>{
+    //Validate the form data
+    
+  };
+
   return (
     <div className="">
       <Header />
@@ -35,7 +40,10 @@ const LoginPage = () => {
           placeholder="Password"
           className="border border-white text-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
         />
-        <button className="bg-red-600 text-white font-bold my-4 px-4 py-2 w-full rounded-sm">
+        <button
+          className="bg-red-600 text-white font-bold my-4 px-4 py-2 w-full rounded-sm"
+          onClick={handleButtonClick}
+        >
           {isSignIn ? "Sign In" : "Sign Up"}
         </button>
         <p className="text-white my-4 cursor-pointer" onClick={toggleSignIn}>
