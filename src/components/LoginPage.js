@@ -1,9 +1,11 @@
 import React from "react";
 import Header from "./Header";
 import { useState, useRef } from "react";
+import {checkValidateData} from "../utils/validate.js";
 
 const LoginPage = () => {
   const [isSignIn, setIsSignIn] = useState(true);
+  const [errorMessage,setErrorMessage]=useState(null);
 
   const email = useRef(null);
   const password = useRef(null);
@@ -13,7 +15,8 @@ const LoginPage = () => {
   };
 
   const handleButtonClick = () => {
-    //Validate the form data
+    const message=checkValidateData(email.current.value, password.current.value);
+    setErrorMessage(message);
   };
 
   return (
@@ -45,6 +48,7 @@ const LoginPage = () => {
           placeholder="Password"
           className="border border-white text-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
         />
+        <p className="my-2 text-red-600">{errorMessage}</p>
         <button
           className="bg-red-600 text-white font-bold my-4 px-4 py-2 w-full rounded-sm"
           onClick={handleButtonClick}
