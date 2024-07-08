@@ -1,16 +1,19 @@
 import React from "react";
 import Header from "./Header";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const LoginPage = () => {
   const [isSignIn, setIsSignIn] = useState(true);
+
+  const email = useRef(null);
+  const password = useRef(null);
+
   const toggleSignIn = () => {
     setIsSignIn(!isSignIn);
   };
 
-  const handleButtonClick=()=>{
+  const handleButtonClick = () => {
     //Validate the form data
-    
   };
 
   return (
@@ -31,11 +34,13 @@ const LoginPage = () => {
           />
         )}
         <input
+          ref={email}
           type="text"
           placeholder="Email"
           className="border border-white text-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
         />
         <input
+          ref={password}
           type="password"
           placeholder="Password"
           className="border border-white text-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
