@@ -3,10 +3,12 @@
 
 - Create React App (create-react-app)
 - Configure Tailwind css into our app
+- Routing
 
 - Built Header
 - Created Sign In Form
 - SignIn-SignUp toggle
+- Form Validation
 
 
 
