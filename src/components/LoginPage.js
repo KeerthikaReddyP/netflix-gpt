@@ -1,7 +1,13 @@
 import React from "react";
 import Header from "./Header";
+import { useState } from "react";
 
 const LoginPage = () => {
+  const [isSignIn, setIsSignIn] = useState(true);
+  const toggleSignIn = () => {
+    setIsSignIn(!isSignIn);
+  };
+
   return (
     <div className="">
       <Header />
@@ -12,6 +18,13 @@ const LoginPage = () => {
         />
       </div>
       <form className="absolute w-3/12 bg-black bg-opacity-80 mx-auto left-0 right-0 p-8 mt-36 rounded-md">
+        {!isSignIn && (
+          <input
+            type="text"
+            placeholder="Name"
+            className="border border-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
+          />
+        )}
         <input
           type="text"
           placeholder="Email"
@@ -23,8 +36,13 @@ const LoginPage = () => {
           className="border border-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
         />
         <button className="bg-red-600 text-white font-bold my-4 px-4 py-2 w-full rounded-sm">
-          Sign In
+          {isSignIn ? "Sign In" : "Sign Up"}
         </button>
+        <p className="text-white my-4 cursor-pointer" onClick={toggleSignIn}>
+          {isSignIn
+            ? "New to Netflix? Sign Up now."
+            : "Already a user? Sign In now."}
+        </p>
       </form>
     </div>
   );
