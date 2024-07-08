@@ -25,7 +25,7 @@ const LoginPage = () => {
           alt="background"
         />
       </div>
-      <form className="absolute w-3/12 bg-black bg-opacity-80 mx-auto left-0 right-0 p-8 mt-36 rounded-md">
+      <form onSubmit={(e)=>{e.preventDefault()}} className="absolute w-3/12 bg-black bg-opacity-80 mx-auto left-0 right-0 p-8 mt-36 rounded-md">
         {!isSignIn && (
           <input
             type="text"
