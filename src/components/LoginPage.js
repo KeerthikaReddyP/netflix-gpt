@@ -22,18 +22,18 @@ const LoginPage = () => {
           <input
             type="text"
             placeholder="Name"
-            className="border border-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
+            className="border border-white text-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
           />
         )}
         <input
           type="text"
           placeholder="Email"
-          className="border border-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
+          className="border border-white text-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
         />
         <input
           type="password"
           placeholder="Password"
-          className="border border-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
+          className="border border-white text-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
         />
         <button className="bg-red-600 text-white font-bold my-4 px-4 py-2 w-full rounded-sm">
           {isSignIn ? "Sign In" : "Sign Up"}
