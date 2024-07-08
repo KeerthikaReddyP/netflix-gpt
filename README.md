@@ -9,6 +9,7 @@
 - Created Sign In Form
 - SignIn-SignUp toggle
 - Form Validation (useRef Hook)
+- Google Firebase (for backend)
 
 
 
