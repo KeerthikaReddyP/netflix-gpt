@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "./Header";
 import LoginPage from "./LoginPage";
+import Browse from "./Browse";
 
 const Body = () => {
   return (
     <div>
-      <Header />
       <LoginPage />
+      <Browse />
     </div>
   );
 };
