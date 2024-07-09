@@ -4,8 +4,11 @@ import Browse from "./Browse";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import {auth} from "../utils/firebase";
+import { useDispatch } from "react-redux";
+import { addUser,removeUser } from "../utils/userSlice";
 
 const Body = () => {
+  const disaptch=useDispatch();
 
   const appRouter=createBrowserRouter([
     {
@@ -22,10 +25,15 @@ const Body = () => {
     onAuthStateChanged(auth, (user)=>{
       if(user){
         //SigIn or SignUp
+        const {uid,email, displayName}=user;
+        
+        //dispatch
+        disaptch(addUser({uid:uid, email:email, displayName:displayName}));
 
       }else{
         //Sign Out
-        
+        //dispatch
+        disaptch(removeUser());
       }
     });
   },[]);
