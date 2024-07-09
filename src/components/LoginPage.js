@@ -44,6 +44,17 @@ const LoginPage = () => {
         });
     } else {
       //Sign In logic
+      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredentials)=>{
+          const user=userCredentials.user;
+          console.log(user);
+        })
+        .catch((error)=>{
+          const errorCode=error.code;
+          const errorMessage=error.message;
+
+          setErrorMessage(errorCode+" : "+errorMessage);
+        });
     }
   };
 
