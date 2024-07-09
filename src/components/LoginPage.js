@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import { useState, useRef } from "react";
 import {checkValidateData} from "../utils/validate.js";
+import {auth} from "../utils/firebase.js";
 
 const LoginPage = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -17,6 +18,16 @@ const LoginPage = () => {
   const handleButtonClick = () => {
     const message=checkValidateData(email.current.value, password.current.value);
     setErrorMessage(message);
+
+    if(message) return;
+
+    if(!isSignIn){
+      //Sign Up logic
+    }
+    else{
+      //Sign In logic
+    }
+
   };
 
   return (
