@@ -5,6 +5,7 @@ const Browse = () => {
   return (
     <div>
       <Header />
+      
     </div>
   );
 };
