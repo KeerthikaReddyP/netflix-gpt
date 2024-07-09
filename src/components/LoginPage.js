@@ -1,12 +1,16 @@
 import React from "react";
 import Header from "./Header";
 import { useState, useRef } from "react";
-import {checkValidateData} from "../utils/validate.js";
-import {auth} from "../utils/firebase.js";
+import { checkValidateData } from "../utils/validate.js";
+import { auth } from "../utils/firebase.js";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const LoginPage = () => {
   const [isSignIn, setIsSignIn] = useState(true);
-  const [errorMessage,setErrorMessage]=useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const email = useRef(null);
   const password = useRef(null);
@@ -16,18 +20,31 @@ const LoginPage = () => {
   };
 
   const handleButtonClick = () => {
-    const message=checkValidateData(email.current.value, password.current.value);
+    const message = checkValidateData(
+      email.current.value,
+      password.current.value
+    );
     setErrorMessage(message);
 
-    if(message) return;
+    if (message) return;
 
-    if(!isSignIn){
+    if (!isSignIn) {
       //Sign Up logic
-    }
-    else{
+      createUserWithEmailAndPassword(auth,email.current.value,password.current.value)
+        .then((userCredential) => {
+          //User Signed Up and Signed In
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+
+          setErrorMessage(errorCode+" : "+errorMessage);
+        });
+    } else {
       //Sign In logic
     }
-
   };
 
   return (
@@ -39,7 +56,12 @@ const LoginPage = () => {
           alt="background"
         />
       </div>
-      <form onSubmit={(e)=>{e.preventDefault()}} className="absolute w-3/12 bg-black bg-opacity-80 mx-auto left-0 right-0 p-8 mt-36 rounded-md">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+        className="absolute w-3/12 bg-black bg-opacity-80 mx-auto left-0 right-0 p-8 mt-36 rounded-md"
+      >
         {!isSignIn && (
           <input
             type="text"
