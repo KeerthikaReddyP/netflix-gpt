@@ -12,7 +12,7 @@
 - Google Firebase (for backend)
     - Firebase Setup
     - Deploying our app to production
-
+- User Authentication
 
 
 # Features of our netflix-gpt
