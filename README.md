@@ -13,6 +13,7 @@
     - Firebase Setup
     - Deploying our app to production
 - User Authentication
+- Pushing this user object into our Redux store
 
 
 # Features of our netflix-gpt
