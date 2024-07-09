@@ -13,7 +13,15 @@
     - Firebase Setup
     - Deploying our app to production
 - User Authentication
-- Pushing this user object into our Redux store
+- Pushing user object into our Redux store
+    - Installing @reduxjs-toolkit and react-redux libraries
+    - create our appStore
+    - create userSlice
+    - add userSlice to appStore
+    - provide appStore to our app
+    - update userSlice with user info
+        - onAuthStateChanged
+        - useNavigate() Hook
 
 
 # Features of our netflix-gpt
