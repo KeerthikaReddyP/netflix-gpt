@@ -10,6 +10,8 @@
 - SignIn-SignUp toggle
 - Form Validation (useRef Hook)
 - Google Firebase (for backend)
+    - Firebase Setup
+    - Deploying our app to production
 
 
 
