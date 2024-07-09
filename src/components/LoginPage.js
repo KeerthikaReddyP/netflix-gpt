@@ -38,9 +38,9 @@ const LoginPage = () => {
         })
         .catch((error) => {
           const errorCode = error.code;
-          const errorMessage = error.message;
+          // const errorMessage = error.message;
 
-          setErrorMessage(errorCode+" : "+errorMessage);
+          setErrorMessage(errorCode);
         });
     } else {
       //Sign In logic
@@ -51,9 +51,9 @@ const LoginPage = () => {
         })
         .catch((error)=>{
           const errorCode=error.code;
-          const errorMessage=error.message;
+          // const errorMessage=error.message;
 
-          setErrorMessage(errorCode+" : "+errorMessage);
+          setErrorMessage(errorCode);
         });
     }
   };
