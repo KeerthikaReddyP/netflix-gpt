@@ -48,7 +48,7 @@ const LoginPage = () => {
         .then((userCredentials)=>{
           const user=userCredentials.user;
           console.log(user);
-          navigate("/");
+          navigate("/browse");
         })
         .catch((error)=>{
           const errorCode=error.code;
