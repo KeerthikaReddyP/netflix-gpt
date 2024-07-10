@@ -60,8 +60,6 @@ const LoginPage = () => {
                 displayName:displayName,
                 photoURL:photoURL,
               }));
-
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.code);
@@ -83,7 +81,6 @@ const LoginPage = () => {
         .then((userCredentials) => {
           const user = userCredentials.user;
           console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;

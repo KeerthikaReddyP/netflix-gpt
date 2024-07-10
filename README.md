@@ -25,6 +25,7 @@
 - signOut button
 - Update user profile
     - display photo URL in the Heaeder once signedIn
+- BugFix: If user is not logged In, redirect /browser to login page and viceversa
 
 
 
