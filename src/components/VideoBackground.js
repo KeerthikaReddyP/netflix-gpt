@@ -15,7 +15,6 @@ const VideoBackground = ({ movieId }) => {
     const trailerVideo = filterVideoResult.length
       ? filterVideoResult[0]
       : jsonData.results[0];
-    console.log(trailerVideo);
   };
 
   useEffect(() => {
@@ -25,7 +24,7 @@ const VideoBackground = ({ movieId }) => {
   return (
     <div>
       <iframe
-        src="https://www.youtube.com/embed/L4DrolmDxmw"
+        src={"https://www.youtube.com/embed/"+trailerVideo.key}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
