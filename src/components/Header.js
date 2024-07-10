@@ -1,7 +1,22 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const handleSignOut = () => {};
+  const navigate=useNavigate();
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        //Signed out successfully
+        navigate("/");
+      })
+      .catch(() => {
+        //An error occured
+        navigate("/error");
+      });
+  };
 
   return (
     <div className="px-6 pt-2 w-screen absolute bg-gradient-to-b from-black z-10 flex justify-between">
