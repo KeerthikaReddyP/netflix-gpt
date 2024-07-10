@@ -27,6 +27,7 @@
     - display photo URL in the Heaeder once signedIn
 - BugFix: If user is not logged In, redirect /browser to login page and viceversa
 - Unsubscribing onAuthStatusUpdated on UnMounting
+- constants file in utils
 
 
 # Features of our netflix-gpt
