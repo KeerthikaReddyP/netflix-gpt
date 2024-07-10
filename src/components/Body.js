@@ -25,10 +25,10 @@ const Body = () => {
     onAuthStateChanged(auth, (user)=>{
       if(user){
         //SigIn or SignUp
-        const {uid,email, displayName}=user;
+        const {uid,email, displayName, photoURL}=user;
         
         //dispatch
-        disaptch(addUser({uid:uid, email:email, displayName:displayName}));
+        disaptch(addUser({uid:uid, email:email, displayName:displayName,photoURL}));
 
       }else{
         //Sign Out
