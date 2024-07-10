@@ -34,6 +34,13 @@
 - Create custom Hook to do the same (useNowPlayingMovies)
     - Fetch data from TMDB API
     - Update Store with the data
+- Browse 
+    - MainBrowseContainer
+        - VideoTitle
+        - Video background
+    - SecondaryBrowseContainer
+        - Movie suggestion * n
+            - Movie cards * n
 
 
 
