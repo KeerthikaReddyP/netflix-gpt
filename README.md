@@ -31,6 +31,9 @@
 - Register TMDB API & create an app to get Access Token
 - Get data from TMDB now playing movies list API
 - Add movie data to our Redux store
+- Create custom Hook to do the same (useNowPlayingMovies)
+    - Fetch data from TMDB API
+    - Update Store with the data
 
 
 
