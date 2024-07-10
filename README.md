@@ -28,6 +28,9 @@
 - BugFix: If user is not logged In, redirect /browser to login page and viceversa
 - Unsubscribing onAuthStatusUpdated on UnMounting
 - constants file in utils
+- Register TMDB API & create an app to get Access Token
+- Get data from TMDB now playing movies list API
+
 
 
 # Features of our netflix-gpt
