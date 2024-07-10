@@ -34,7 +34,7 @@
 - Create custom Hook to do the same (useNowPlayingMovies)
     - Fetch data from TMDB API
     - Update Store with the data
-- Browse 
+- Browse (planning)
     - MainBrowseContainer
         - VideoTitle
         - Video background
@@ -47,7 +47,8 @@
     - Custom Hook (useMovieTrailer)
         - fetching trailer video
         - updating store with trailer video data
-
+- Embed the youtube video and make it autoplay and mute
+- Tailwind calsses to make MainBrowseContainer look awesome
 
 
 
