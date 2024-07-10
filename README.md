@@ -22,6 +22,10 @@
     - update userSlice with user info
         - onAuthStateChanged
         - useNavigate() Hook
+- signOut button
+- Update user profile
+    - display photo URL in the Heaeder once signedIn
+
 
 
 # Features of our netflix-gpt
