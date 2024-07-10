@@ -3,14 +3,19 @@ import Header from "./Header";
 import { useState, useRef } from "react";
 import { checkValidateData } from "../utils/validate.js";
 import { auth } from "../utils/firebase.js";
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
+  const username = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
@@ -29,12 +34,27 @@ const LoginPage = () => {
 
     if (!isSignIn) {
       //Sign Up logic
-      createUserWithEmailAndPassword(auth,email.current.value,password.current.value)
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
         .then((userCredential) => {
           //User Signed Up and Signed In
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
+
+          updateProfile(user, {
+            displayName: username.current.value,
+            photoURL:
+              "https://lh3.googleusercontent.com/ogw/AF2bZygJrebN_tpv3XKBgKLxGMBWhBCdXGaiEJT39JVZ2tofwVE=s32-c-mo",
+          })
+            .then(() => {
+              navigate("/browse");
+            })
+            .catch((error) => {
+              setErrorMessage(error.code);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -44,14 +64,18 @@ const LoginPage = () => {
         });
     } else {
       //Sign In logic
-      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
-        .then((userCredentials)=>{
-          const user=userCredentials.user;
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredentials) => {
+          const user = userCredentials.user;
           console.log(user);
           navigate("/browse");
         })
-        .catch((error)=>{
-          const errorCode=error.code;
+        .catch((error) => {
+          const errorCode = error.code;
           // const errorMessage=error.message;
 
           setErrorMessage(errorCode);
@@ -76,6 +100,7 @@ const LoginPage = () => {
       >
         {!isSignIn && (
           <input
+            ref={username}
             type="text"
             placeholder="Name"
             autoComplete="username"
