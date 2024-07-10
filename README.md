@@ -41,6 +41,13 @@
     - SecondaryBrowseContainer
         - Movie suggestion * n
             - Movie cards * n
+- Video background
+    - videos API from TMDB
+    - getting trailer video & displaying on the website
+    - Custom Hook (useMovieTrailer)
+        - fetching trailer video
+        - updating store with trailer video data
+
 
 
 
