@@ -70,6 +70,7 @@ const LoginPage = () => {
         password.current.value
       )
         .then((userCredentials) => {
+          const user=userCredentials.user;
         })
         .catch((error) => {
           setErrorMessage(error.code);
@@ -78,7 +79,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="">
+    <div>
       <Header />
       <div className="absolute">
         <img
