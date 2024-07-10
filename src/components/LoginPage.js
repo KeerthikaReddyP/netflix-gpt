@@ -8,14 +8,12 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice.js";
 
 const LoginPage = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch=useDispatch();
 
   const username = useRef(null);
@@ -36,16 +34,13 @@ const LoginPage = () => {
     if (message) return;
 
     if (!isSignIn) {
-      //Sign Up logic
       createUserWithEmailAndPassword(
         auth,
         email.current.value,
         password.current.value
       )
         .then((userCredential) => {
-          //User Signed Up and Signed In
           const user = userCredential.user;
-          console.log(user);
 
           updateProfile(user, {
             displayName: username.current.value,
@@ -66,27 +61,18 @@ const LoginPage = () => {
             });
         })
         .catch((error) => {
-          const errorCode = error.code;
-          // const errorMessage = error.message;
-
-          setErrorMessage(errorCode);
+          setErrorMessage(error.code);
         });
     } else {
-      //Sign In logic
       signInWithEmailAndPassword(
         auth,
         email.current.value,
         password.current.value
       )
         .then((userCredentials) => {
-          const user = userCredentials.user;
-          console.log(user);
         })
         .catch((error) => {
-          const errorCode = error.code;
-          // const errorMessage=error.message;
-
-          setErrorMessage(errorCode);
+          setErrorMessage(error.code);
         });
     }
   };
