@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTrailerVideo } from "../utils/moviesSlice";
 
 const VideoBackground = ({ movieId }) => {
   const dispatch = useDispatch();
+  const trailerKey=useSelector(store=>store.movies?.trailerVideo?.key);
 
   const fetchurl = "https://api.themoviedb.org/3/movie/" + movieId + "/videos?language=en-US";
 
@@ -25,7 +26,7 @@ const VideoBackground = ({ movieId }) => {
   return (
     <div>
       <iframe
-        src={"https://www.youtube.com/embed/" + trailerVideo.key}
+        src={"https://www.youtube.com/embed/" + trailerKey}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
