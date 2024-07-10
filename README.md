@@ -49,6 +49,9 @@
         - updating store with trailer video data
 - Embed the youtube video and make it autoplay and mute
 - Tailwind calsses to make MainBrowseContainer look awesome
+- SecondryBrowseContainer
+    - MovieList
+        - MovieCards
 
 
 
