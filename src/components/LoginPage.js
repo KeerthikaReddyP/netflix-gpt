@@ -78,7 +78,7 @@ const LoginPage = () => {
           <input
             type="text"
             placeholder="Name"
-            autocomplete="username"
+            autoComplete="username"
             className="border border-white text-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
           />
         )}
@@ -86,14 +86,14 @@ const LoginPage = () => {
           ref={email}
           type="text"
           placeholder="Email"
-          autocomplete="email"
+          autoComplete="email"
           className="border border-white text-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          autocomplete="current-password"
+          autoComplete="current-password"
           className="border border-white text-white my-4 p-4 w-full bg-black bg-opacity-0 rounded-sm"
         />
         <p className="my-2 text-red-600">{errorMessage}</p>
