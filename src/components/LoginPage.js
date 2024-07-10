@@ -9,11 +9,14 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice.js";
 
 const LoginPage = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
+  const dispatch=useDispatch();
 
   const username = useRef(null);
   const email = useRef(null);
@@ -50,6 +53,14 @@ const LoginPage = () => {
               "https://lh3.googleusercontent.com/ogw/AF2bZygJrebN_tpv3XKBgKLxGMBWhBCdXGaiEJT39JVZ2tofwVE=s32-c-mo",
           })
             .then(() => {
+              const {uid, email, displayName, photoURL}=auth.currentUser;
+              dispatch(addUser({
+                uid:uid,
+                email:email,
+                displayName:displayName,
+                photoURL:photoURL,
+              }));
+
               navigate("/browse");
             })
             .catch((error) => {

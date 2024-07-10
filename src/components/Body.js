@@ -28,7 +28,7 @@ const Body = () => {
         const {uid,email, displayName, photoURL}=user;
         
         //dispatch
-        disaptch(addUser({uid:uid, email:email, displayName:displayName,photoURL}));
+        disaptch(addUser({uid:uid, email:email, displayName:displayName,photoURL:photoURL}));
 
       }else{
         //Sign Out

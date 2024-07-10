@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const navigate=useNavigate();
-  const user=useSelector((store)=>store.user);
+  const navigate = useNavigate();
+  const user = useSelector((store) => store.user);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -27,19 +27,21 @@ const Header = () => {
         alt="Netflix logo"
         className="w-44"
       />
-      <div className="flex m-2 p-2 items-center">
-        <img
-          className="w-8 h-8 m-2 rounded-full"
-          alt="user-icon"
-          src={user.photoURL}
-        />
-        <button
-          onClick={handleSignOut}
-          className="bg-red-600 text-white font-bold m-2 py-1 px-2 rounded-md"
-        >
-          Sign Out
-        </button>
-      </div>
+      {user && (
+        <div className="flex m-2 p-2 items-center">
+          <img
+            className="w-8 h-8 m-2 rounded-full"
+            alt="user-icon"
+            src={user.photoURL}
+          />
+          <button
+            onClick={handleSignOut}
+            className="bg-red-600 text-white font-bold m-2 py-1 px-2 rounded-md"
+          >
+            Sign Out
+          </button>
+        </div>
+      )}
     </div>
   );
 };
