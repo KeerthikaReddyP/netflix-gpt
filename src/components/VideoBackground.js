@@ -8,9 +8,10 @@ const VideoBackground = ({movieId}) => {
   const getMovieVideos=async ()=>{
     const data=await fetch(fetchurl, API_OPTIONS);
     const jsonData=await data.json();
-    
+
     const filterVideoResult=jsonData.results.filter((video)=>(video.type==="Trailer"));
-    console.log(filterVideoResult);
+    const trailerVideo= filterVideoResult.length ? filterVideoResult[0] : jsonData.results[0];
+    console.log(trailerVideo);
   };
 
   useEffect(()=>{
