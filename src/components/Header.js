@@ -2,9 +2,11 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const navigate=useNavigate();
+  const user=useSelector((store)=>store.user);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -27,9 +29,9 @@ const Header = () => {
       />
       <div className="flex m-2 p-2 items-center">
         <img
-          className="w-8 h-8 m-2"
+          className="w-8 h-8 m-2 rounded-full"
           alt="user-icon"
-          src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/366be133850498.56ba69ac36858.png"
+          src={user.photoURL}
         />
         <button
           onClick={handleSignOut}
