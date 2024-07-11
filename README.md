@@ -52,7 +52,8 @@
 - SecondryBrowseContainer
     - MovieList
         - MovieCards
-
+    - TMDB apis to get popular, top rated and upcoming movies
+    - created custom hooks to get the movie data and update to the our store
 
 
 # Features of our netflix-gpt
