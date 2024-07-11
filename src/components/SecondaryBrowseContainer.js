@@ -6,8 +6,8 @@ const SecondaryBrowseContainer = () => {
   const movies = useSelector((store) => store.movies);
 
   return (
-    <div>
-      <div>
+    <div className="bg-black w-screen aspect-video">
+      <div className="-mt-80">
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
