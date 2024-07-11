@@ -7,24 +7,33 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { NETFLIX_LOGO } from "../utils/constants";
 
 const Header = () => {
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
 
-  useEffect(()=>{
-    const unsubscribe=onAuthStateChanged(auth, (user)=>{
-      if(user){
-        const {uid,email, displayName, photoURL}=user;
-        dispatch(addUser({uid:uid, email:email, displayName:displayName,photoURL:photoURL}));
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
         navigate("/browse");
-      }else{
+      } else {
         dispatch(removeUser());
         navigate("/");
       }
     });
 
-    return ()=>{unsubscribe()};
-  },[]);
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -36,13 +45,17 @@ const Header = () => {
 
   return (
     <div className="px-6 pt-2 w-screen absolute bg-gradient-to-b from-black z-10 flex justify-between">
-      <img
-        src={NETFLIX_LOGO}
-        alt="Netflix logo"
-        className="w-44"
-      />
+      <img src={NETFLIX_LOGO} alt="Netflix logo" className="w-44" />
       {user && (
         <div className="flex m-2 p-2 items-center">
+          <button className="bg-purple-700 text-white m-2 mr-4 py-1 px-2 font-bold rounded-md flex">
+            <img
+              className="w-4 flex py-1 mr-2"
+              alt="GPT logo"
+              src="https://static.vecteezy.com/system/resources/previews/022/841/114/original/chatgpt-logo-transparent-background-free-png.png"
+            />
+            GPT Search
+          </button>
           <img
             className="w-8 h-8 m-2 rounded-full"
             alt="user-icon"
