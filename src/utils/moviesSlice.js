@@ -15,7 +15,7 @@ const moviesSlice=createSlice({
             state.trailerVideo=action.payload;
         },
         addPopularMovies:(state,action)=>{
-            state.addPopularMovies=action.payload;
+            state.popularMovies=action.payload;
         },
     }
 });

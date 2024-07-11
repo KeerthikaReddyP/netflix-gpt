@@ -9,7 +9,7 @@ const SecondaryBrowseContainer = () => {
     <div className="bg-black w-screen aspect-video">
       <div className="-mt-80">
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
-        <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
+        <MovieList title={"Popular"} movies={movies.popularMovies} />
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
