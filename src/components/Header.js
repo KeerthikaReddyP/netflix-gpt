@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { NETFLIX_LOGO } from "../utils/constants";
-import {toggleGptPageView} from "../utils/gptSlice"; 
+import { toggleGptPageView } from "../utils/gptSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
-  const showGptPage=useSelector(store=>store.gpt.showGptPage);
+  const showGptPage = useSelector((store) => store.gpt.showGptPage);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -45,7 +45,7 @@ const Header = () => {
       });
   };
 
-  const handleGptButtonClick=()=>{
+  const handleGptButtonClick = () => {
     dispatch(toggleGptPageView());
   };
 
@@ -54,13 +54,22 @@ const Header = () => {
       <img src={NETFLIX_LOGO} alt="Netflix logo" className="w-44" />
       {user && (
         <div className="flex m-2 p-2 items-center">
-          <button className="bg-purple-700 text-white m-2 mr-4 py-1 px-2 font-bold rounded-md flex" onClick={handleGptButtonClick}>
-            <img
-              className="w-4 flex py-1 mr-2"
-              alt="GPT logo"
-              src="https://static.vecteezy.com/system/resources/previews/022/841/114/original/chatgpt-logo-transparent-background-free-png.png"
-            />
-            GPT Search
+          <button
+            className="bg-purple-700 text-white m-2 mr-4 py-1 px-2 font-bold rounded-md flex"
+            onClick={handleGptButtonClick}
+          >
+            {showGptPage ? (
+              "Back to Browse"
+            ) : (
+              <>
+                <img
+                  className="w-4 flex py-1 mr-2"
+                  alt="GPT logo"
+                  src="https://static.vecteezy.com/system/resources/previews/022/841/114/original/chatgpt-logo-transparent-background-free-png.png"
+                />
+                GPT Search
+              </>
+            )}
           </button>
           <img
             className="w-8 h-8 m-2 rounded-full"
