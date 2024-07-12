@@ -53,23 +53,25 @@ const Header = () => {
   const handleLanguageChange = (e) => {
     dispatch(changeLanguage(e.target.value));
   };
-  
+
   return (
     <div className="px-6 pt-2 w-screen absolute bg-gradient-to-b from-black z-10 flex justify-between">
       <img src={NETFLIX_LOGO} alt="Netflix logo" className="w-44" />
       {user && (
         <div className="flex m-2 p-2 items-center">
-          <select
-            id="language"
-            className="m-2 py-1 px-2 bg-gray-300 text-black rounded-sm"
-            onChange={handleLanguageChange}
-          >
-            {SUPPORTED_LANGUAGES.map((lang) => (
-              <option key={lang.identifier} value={lang.name}>
-                {lang.name}
-              </option>
-            ))}
-          </select>
+          {showGptPage && (
+            <select
+              id="language"
+              className="m-2 py-1 px-2 bg-gray-300 text-black rounded-sm"
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.identifier} value={lang.name}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
 
           <button
             className="bg-purple-700 text-white m-2 mr-4 py-1 px-2 font-bold rounded-md flex"
