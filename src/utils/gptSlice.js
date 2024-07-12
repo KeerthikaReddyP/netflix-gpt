@@ -7,7 +7,7 @@ const gptSlice=createSlice({
     },
     reducers:{
         toggleGptPageView:(state,action)=>{
-            state.showGptPage=!(state.showGptPage);
+            state.showGptPage=!state.showGptPage;
         }
     }
 });
