@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { NETFLIX_LOGO } from "../utils/constants";
+import {toggleGptPageView} from "../utils/gptSlice"; 
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -43,12 +44,16 @@ const Header = () => {
       });
   };
 
+  const handleGptButtonClick=()=>{
+    dispatch(toggleGptPageView());
+  };
+
   return (
     <div className="px-6 pt-2 w-screen absolute bg-gradient-to-b from-black z-10 flex justify-between">
       <img src={NETFLIX_LOGO} alt="Netflix logo" className="w-44" />
       {user && (
         <div className="flex m-2 p-2 items-center">
-          <button className="bg-purple-700 text-white m-2 mr-4 py-1 px-2 font-bold rounded-md flex">
+          <button className="bg-purple-700 text-white m-2 mr-4 py-1 px-2 font-bold rounded-md flex" onClick={handleGptButtonClick}>
             <img
               className="w-4 flex py-1 mr-2"
               alt="GPT logo"
