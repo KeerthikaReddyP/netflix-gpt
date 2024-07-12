@@ -1,16 +1,16 @@
 import React from "react";
 import GptSearchBar from "./GptSearchBar";
 import GptMovieSuggestions from "./GptMovieSuggestions";
-import {NETFLIX_BACKGROUND_IMAGE} from "../utils/constants";
+import { NETFLIX_BACKGROUND_IMAGE } from "../utils/constants";
 
 const GptPage = () => {
   return (
-    <div>
-      <div>
+    <div className="">
+      <div className="absolute -z-10">
         <img alt="netflix background" src={NETFLIX_BACKGROUND_IMAGE} />
       </div>
-        <GptSearchBar />
-        <GptMovieSuggestions />
+      <GptSearchBar />
+      <GptMovieSuggestions />
     </div>
   );
 };
