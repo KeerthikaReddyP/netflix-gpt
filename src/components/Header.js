@@ -4,7 +4,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { NETFLIX_LOGO } from "../utils/constants";
+import { NETFLIX_LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
 import { toggleGptPageView } from "../utils/gptSlice";
 
 const Header = () => {
@@ -54,6 +54,14 @@ const Header = () => {
       <img src={NETFLIX_LOGO} alt="Netflix logo" className="w-44" />
       {user && (
         <div className="flex m-2 p-2 items-center">
+          <select className="m-2 py-1 px-2 bg-gray-300 text-black rounded-sm">
+            {SUPPORTED_LANGUAGES.map((lang) => (
+              <option key={lang.identifier} value={lang.name}>
+                {lang.name}
+              </option>
+            ))}
+          </select>
+
           <button
             className="bg-purple-700 text-white m-2 mr-4 py-1 px-2 font-bold rounded-md flex"
             onClick={handleGptButtonClick}
