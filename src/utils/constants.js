@@ -38,7 +38,5 @@ export const SUPPORTED_LANGUAGES=[
   },
 ];
 
-// export const OPENAI_KEY="sk-proj-NNTuzYJLr5xduf41vblpT3BlbkFJcs6Z0kTd9jerELivxJkl";
-export const OPENAI_KEY="sk-proj-ex2eU8kRPSjjsOjYjjv2T3BlbkFJARDkv97YkGhBk9lAJ40K";
 
 export const GEMINI_API_KEY="AIzaSyBqRdzdsHptcSJuBHy39hp79qJQl-9fR_U";
