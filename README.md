@@ -54,6 +54,10 @@
         - MovieCards
     - TMDB apis to get popular, top rated and upcoming movies
     - created custom hooks to get the movie data and update to the our store
+- GPT Page
+    - Gpt Search bar
+    - Gpt movie recommondations (based on search)
+- Multi-language FEATURE in our app
 
 
 # Features of our netflix-gpt
