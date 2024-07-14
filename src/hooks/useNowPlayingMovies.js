@@ -7,6 +7,7 @@ const useNowPlayingMovies = () => {
   const dispatch = useDispatch();
   const nowPlayingMovies=useSelector(store=>store.movies.nowPlayingMovies);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getNowPlayingMovies = async () => {
     try {
       const data = await fetch(
@@ -22,7 +23,7 @@ const useNowPlayingMovies = () => {
 
   useEffect(() => {
     !nowPlayingMovies && getNowPlayingMovies();
-  }, []);
+  }, [getNowPlayingMovies, nowPlayingMovies]);
 };
 
 export default useNowPlayingMovies;

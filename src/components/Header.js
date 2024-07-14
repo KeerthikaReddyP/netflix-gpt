@@ -36,7 +36,7 @@ const Header = () => {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [dispatch, navigate]);
 
   const handleSignOut = () => {
     signOut(auth)

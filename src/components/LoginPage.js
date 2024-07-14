@@ -70,6 +70,7 @@ const LoginPage = () => {
         password.current.value
       )
         .then((userCredentials) => {
+          // eslint-disable-next-line 
           const user=userCredentials.user;
         })
         .catch((error) => {

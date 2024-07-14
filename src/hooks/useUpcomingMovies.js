@@ -8,6 +8,7 @@ const useUpcomingMovies = () => {
   const dispatch = useDispatch();
   const upcomingMovies=useSelector(store=>store.movies.upcomingMovies);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getUpcomingMovies = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/upcoming?page=1",
@@ -19,7 +20,7 @@ const useUpcomingMovies = () => {
 
   useEffect(() => {
     !upcomingMovies && getUpcomingMovies();
-  }, []);
+  }, [getUpcomingMovies, upcomingMovies]);
 };
 
 export default useUpcomingMovies;
