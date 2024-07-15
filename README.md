@@ -58,6 +58,23 @@
     - Gpt Search bar
     - Gpt movie recommondations (based on search)
 - Multi-language FEATURE in our app
+- Integrated Open AI
+    - Get open ai api key
+    - GPT search api call
+- Integrated GEMINI AI
+    - Got API key form Google AI Studio
+    - Installed @google/generative-ai
+    - Initialized the gemini ai model
+    - Generated movie suggestions based on user input by promting the ai
+- fetched gpt suggested movies from TMDB
+- created gptSlice
+    - added movie data 
+        - movie names
+        - movie details
+- reused MovieList component to show movie suggestions
+- Memoization
+- Made our app responsive
+- Deployed it onto netlify
 
 
 # Features of our netflix-gpt

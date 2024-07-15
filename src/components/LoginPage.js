@@ -86,13 +86,14 @@ const LoginPage = () => {
         <img
           src={NETFLIX_BACKGROUND_IMAGE}
           alt="background"
+          className="h-screen object-cover w-screen"
         />
       </div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
         }}
-        className="absolute w-3/12 bg-black bg-opacity-80 mx-auto left-0 right-0 p-8 mt-36 rounded-md"
+        className="absolute w-full md:w-3/12 bg-black bg-opacity-80 mx-auto left-0 right-0 p-8 mt-36 rounded-md"
       >
         {!isSignIn && (
           <input
@@ -128,6 +129,10 @@ const LoginPage = () => {
           {isSignIn
             ? "New to Netflix? Sign Up now."
             : "Already a user? Sign In now."}
+        </p>
+        <p className="text-gray-500 text-sm">
+          If you are hesitating to signUp. Feel free to use these credentials.
+          Email : testuser03@gmail.com Password : Test@123
         </p>
       </form>
     </div>
