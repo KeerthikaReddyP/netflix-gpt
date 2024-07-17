@@ -10,7 +10,7 @@ const MovieList = ({ title, movies }) => {
         <div className="flex" style={{ WebkitScrollbar: 'none' }}>
           {movies &&
             movies.map((movie) => (
-              <MovieCard key={movie.id} posterPath={movie.poster_path} />
+              <MovieCard key={movie.id} posterPath={movie.poster_path} movieDetails={movie} />
             ))}
         </div>
       </div>

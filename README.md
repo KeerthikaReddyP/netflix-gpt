@@ -75,6 +75,7 @@
 - Memoization
 - Made our app responsive
 - Deployed it onto netlify
+- Displaying movie trailer on click of movie card
 
 
 # Features of our netflix-gpt
